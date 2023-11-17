@@ -6,11 +6,11 @@
 /*   By: madumerg <madumerg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:27:09 by madumerg          #+#    #+#             */
-/*   Updated: 2023/11/15 13:13:43 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/11/17 11:47:21 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
 int	ft_putstr(char *str)
 {

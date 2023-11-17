@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madumerg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: madumerg <madumerg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:26:16 by madumerg          #+#    #+#             */
-/*   Updated: 2023/11/15 11:26:19 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/11/17 11:44:42 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
 void	ft_putchar(char c)
 {
