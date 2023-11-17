@@ -6,13 +6,14 @@
 /*   By: madumerg <madumerg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:26:16 by madumerg          #+#    #+#             */
-/*   Updated: 2023/11/17 11:44:42 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/11/17 12:08:48 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }

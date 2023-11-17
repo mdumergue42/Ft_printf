@@ -1,4 +1,10 @@
-SRCS = 
+SRCS = ft_printf.c \
+		ft_putchar.c \
+		ft_putnbr.c \
+		ft_putstr.c \
+		ft_strlen.c \
+		ft_putnbr_uns_int.c \
+		ft_putnbr_hexa.c
 
 NAME    = libftprintf.a
 

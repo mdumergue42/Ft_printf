@@ -6,60 +6,60 @@
 /*   By: madumerg <madumerg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:38:09 by madumerg          #+#    #+#             */
-/*   Updated: 2023/11/17 11:32:41 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/11/17 16:15:35 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_conversions(const char *str, ...)
+int	ft_conversions(va_list args, char c)
 {
-    va_list args;
-    int     i;
-    int     print;
+	int	print;
 
-    va_start(args, str);
-    print = 0;
-    if (str == 'c')
-        print += ft_putchar(va_arg(args, str[i]));
-    else if (str == 's')
-        print += ft_putstr(va_arg(args, str[i]));
-    else if (str == 'p')
-        print += va_arg(args, str[i]);
-    else if (str == 'd')
-        print += va_arg(args, str[i]);
-    else if (str == 'i')
-        print += va_arg(args, str[i]);
-    else if (str == 'u')
-        print += va_arg(args, str[i]);
-    else if (str == 'x')
-        print += va_arg(args, str[i]);
-    else if (str == 'X')
-        print += va_arg(args, str[i]);
-    else if (str == '%')
-        print += va_arg(args, str[i]);
-	return (0);
+	print = 0;
+	if (c == 'c')
+		print += ft_putchar(va_arg(args, int));
+	else if (c == 's')
+		print += ft_putstr(va_arg(args, char *));
+	else if (c == 'p')
+		print += ft_print_ptr(va_arg(args, void *));
+	else if (c == 'd')
+		print += ft_putnbr(va_arg(args, int));
+	else if (c == 'i')
+		print += ft_putnbr(va_arg(args, int));
+	else if (c == 'u')
+		print += ft_putnbr_uns_int(va_arg(args, unsigned int));
+	else if (c == 'x')
+		print += ft_putnbr_hexa_low(va_arg(args, unsigned int));
+	else if (c == 'X')
+		print += ft_putnbr_hexa_upp(va_arg(args, unsigned int));
+	else if (c == '%')
+		print += ft_putchar('%');
+	return (print);
 }
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-    va_list args;
-    int     print;
-    int     i;
-    
-    if (!str)
-        return (NULL);
-    va_start(args, str);
-    i = 0;
-    print = 0;
-    while (str[i])
-    {
-        if (str[i] == '%')
-        {
-            print += ft_conversions(args, str[i]);
-            i++;
-        }
-    }
-    va_end(args);
-    return (print);
+	va_list	args;
+	int		print;
+	int		i;
+
+	if (!str)
+		return (-1);
+	va_start(args, str);
+	i = 0;
+	print = 0;
+	while (str[i])
+	{
+		if (str[i] == '%')
+		{
+			print += ft_conversions(args, str[i + 1]);
+			i++;
+		}
+		else
+			print += ft_putchar(str[i]);
+		i++;
+	}
+	va_end(args);
+	return (print);
 }
