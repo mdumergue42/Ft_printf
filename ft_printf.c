@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:38:09 by madumerg          #+#    #+#             */
-/*   Updated: 2023/11/17 16:15:35 by madumerg         ###   ########.fr       */
+/*   Updated: 2023/11/18 11:06:59 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,24 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		print;
-	int		i;
 
 	if (!str)
 		return (-1);
 	va_start(args, str);
-	i = 0;
 	print = 0;
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == '%')
+		if (*str == '%')
 		{
-			print += ft_conversions(args, str[i + 1]);
-			i++;
+			++str;
+			if (*str)
+				print += ft_conversions(args, *str);
+			else
+				return (-1);
 		}
 		else
-			print += ft_putchar(str[i]);
-		i++;
+			print += ft_putchar(*str);
+		str++;
 	}
 	va_end(args);
 	return (print);
