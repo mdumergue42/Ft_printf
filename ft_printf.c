@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:38:09 by madumerg          #+#    #+#             */
-/*   Updated: 2023/11/18 11:06:59 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/11/05 20:49:24 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,12 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (print);
+}
+
+int	main()
+{
+	char	*s = malloc(2);
+	s[0] = '%';
+	s[1] = 0;
+	ft_printf(s);
 }
